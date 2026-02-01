@@ -1,4 +1,4 @@
-package com.lestharkin.model.node;
+package edu.lestharkin.model.node;
 
 /**
  * An abstract implementation of the Node interface.

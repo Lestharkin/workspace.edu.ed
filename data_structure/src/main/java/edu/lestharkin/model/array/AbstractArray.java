@@ -1,7 +1,7 @@
 package edu.lestharkin.model.array;
 
-import com.lestharkin.model.collection.AbstractCollection;
-import com.lestharkin.model.iterator.Iterator;
+import edu.lestharkin.model.collection.AbstractCollection;
+import edu.lestharkin.model.iterator.Iterator;
 
 /**
  * The Abstract Array represents a collection that supports

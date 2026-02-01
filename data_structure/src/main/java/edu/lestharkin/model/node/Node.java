@@ -1,4 +1,4 @@
-package com.lestharkin.model.node;
+package edu.lestharkin.model.node;
 
 /**
  * This interface represents a node in a data structure.

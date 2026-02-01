@@ -1,6 +1,6 @@
 package edu.lestharkin.model.collection;
 
-import com.lestharkin.model.iterable.Iterable;
+import edu.lestharkin.model.iterable.Iterable;
 
 /**
  * This interface represents a collection of elements.

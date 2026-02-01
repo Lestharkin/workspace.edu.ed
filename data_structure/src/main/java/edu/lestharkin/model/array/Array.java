@@ -2,7 +2,7 @@ package edu.lestharkin.model.array;
 
 import java.util.function.Predicate;
 
-import com.lestharkin.model.collection.Collection;
+import edu.lestharkin.model.collection.Collection;
 
 /**
  * Represents an array data structure that allows insertion, retrieval, removal,

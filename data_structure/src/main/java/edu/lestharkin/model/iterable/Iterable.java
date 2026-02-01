@@ -2,7 +2,7 @@ package edu.lestharkin.model.iterable;
 
 import java.util.function.Function;
 
-import com.lestharkin.model.iterator.Iterator;
+import edu.lestharkin.model.iterator.Iterator;
 
 /**
  * This interface represents an iterable object.

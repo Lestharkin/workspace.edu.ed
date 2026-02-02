@@ -23,5 +23,6 @@ public class App {
         System.out.println(node1.toString());
         System.out.println(node2.toString());
         System.out.println(node3.toString());
+
     }
 }

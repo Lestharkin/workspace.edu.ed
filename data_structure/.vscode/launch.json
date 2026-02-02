@@ -6,9 +6,10 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Current File",
+      "name": "App",
       "request": "launch",
-      "mainClass": "${file}"
+      "mainClass": "edu.lestharkin.App",
+      "projectName": "data_structure"
     }
   ]
 }

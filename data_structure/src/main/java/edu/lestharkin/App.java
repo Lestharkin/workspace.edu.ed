@@ -1,6 +1,6 @@
 package edu.lestharkin;
 
-import edu.lestharkin.app.linkedlist.node.singly.LinkedNode;
+import edu.lestharkin.app.linkedlist.singly.LinkedList;
 
 /**
  * Hello world!
@@ -10,19 +10,23 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Hello Lists");
 
-        LinkedNode<Integer> node1 = new LinkedNode<>(2);
+        LinkedList<Integer> list = new LinkedList<>();
 
-        LinkedNode<Integer> node2 = new LinkedNode<>(1000);
+        list.add(10);
 
-        node1.setNext(node2);
+        System.out.println(list.toString());
 
-        LinkedNode<Person> node3 = new LinkedNode<>();
+        list.add(200);
 
-        node3.set(new Person("Lenin", 25));
+        System.out.println(list.toString());
 
-        System.out.println(node1.toString());
-        System.out.println(node2.toString());
-        System.out.println(node3.toString());
+        list.add(3000);
+
+        System.out.println(list.toString());
+
+        list.add(50000);
+
+        System.out.println(list.toString());
 
     }
 }

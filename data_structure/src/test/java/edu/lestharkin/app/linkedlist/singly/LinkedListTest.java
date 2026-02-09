@@ -1,20 +1,19 @@
 package edu.lestharkin.app.linkedlist.singly;
 
-import org.junit.Test;
+class LinkedListTest {
 
-public class LinkedListTest {
-  @Test
-  public void testAdd() {
-
-  }
-
-  @Test
-  public void testIsEmpty() {
+  @org.junit.jupiter.api.Test
+  void testAdd() {
 
   }
 
-  @Test
-  public void testToString() {
+  @org.junit.jupiter.api.Test
+  void testIsEmpty() {
+
+  }
+
+  @org.junit.jupiter.api.Test
+  void testToString() {
 
   }
 }

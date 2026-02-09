@@ -13,20 +13,11 @@ public class App {
         LinkedList<Integer> list = new LinkedList<>();
 
         list.add(10);
+        list.add(2);
+        list.add(130);
+        list.add(1044444);
 
-        System.out.println(list.toString());
-
-        list.add(200);
-
-        System.out.println(list.toString());
-
-        list.add(3000);
-
-        System.out.println(list.toString());
-
-        list.add(50000);
-
-        System.out.println(list.toString());
+        list.remove(1);
 
     }
 }

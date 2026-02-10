@@ -12,8 +12,8 @@ import edu.lestharkin.model.list.List;
 
 public class LinkedList<E> extends AbstractList<E> {
 
-  private LinkedNode<E> head;
-  private LinkedNode<E> tail;
+  private transient LinkedNode<E> head;
+  private transient LinkedNode<E> tail;
 
   public LinkedList() {
     head = tail = null;

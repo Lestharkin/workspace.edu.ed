@@ -14,6 +14,7 @@ public class LinkedList<E> extends AbstractList<E> {
 
   private transient LinkedNode<E> head;
   private transient LinkedNode<E> tail;
+  private transient LinkedNode<E> inode;
 
   public LinkedList() {
     head = tail = null;
@@ -161,6 +162,7 @@ public class LinkedList<E> extends AbstractList<E> {
   @Override
   public boolean remove(E element) {
     LinkedNode<E> node = head;
+
     while (node != null) {
       System.out.println(node.toString());
       node = node.getNext();
@@ -289,8 +291,24 @@ public class LinkedList<E> extends AbstractList<E> {
 
   @Override
   public Iterator<E> iterator() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'iterator'");
+    inode = head;
+
+    return new Iterator<E>() {
+
+      public boolean hasNext() {
+        return inode != null;
+      }
+
+      public E next() {
+        if (!hasNext()) {
+          throw new IllegalStateException("No more elements in the iterator");
+        }
+
+        E element = inode.get();
+        inode = inode.getNext();
+        return element;
+      }
+    };
   }
 
 }

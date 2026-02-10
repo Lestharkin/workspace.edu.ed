@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import edu.lestharkin.model.iterator.Iterator;
+
 class LinkedListTest {
 
   LinkedList<Object> linkedList;
@@ -54,8 +56,22 @@ class LinkedListTest {
   @DisplayName("remove method of LinkedList class")
   void testRemove() {
     linkedList.add(1);
-    linkedList.remove(1);
-    System.out.println("TEST");
+    linkedList.remove(2);
+  }
+
+  @Test
+  @DisplayName("Iterator method of LinkedList class")
+  void testIterator() {
+    for (int i = 0; i < 10; i++) {
+      linkedList.add(i);
+    }
+
+    Iterator<Object> iterator = linkedList.iterator();
+
+    for (int i = 0; i < 10; i++) {
+      assertTrue(iterator.hasNext());
+      assertEquals(i, iterator.next());
+    }
   }
 
 }

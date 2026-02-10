@@ -16,26 +16,30 @@ public class LinkedList<E> extends AbstractList<E> {
   private transient LinkedNode<E> tail;
   private transient LinkedNode<E> inode;
 
+  private transient int size;
+
   public LinkedList() {
-    head = tail = null;
+    head = tail = inode = null;
+    size = 0;
   }
 
   public LinkedList(E element) {
-    this.head = new LinkedNode<>(element);
+    this.head = tail = inode = new LinkedNode<>(element);
+    this.size = 1;
   }
 
   public boolean add(E element) {
     try {
       if (isEmpty()) {
         LinkedNode<E> node = new LinkedNode<>(element);
-        this.head = this.tail = node;
-        return true;
+        this.head = this.tail = this.inode = node;
       } else {
         LinkedNode<E> node = new LinkedNode<>(element);
         this.tail.setNext(node);
         this.tail = node;
-        return true;
       }
+      this.size++;
+      return true;
     } catch (Exception e) {
       System.out.println(e.getMessage());
       return false;
@@ -161,18 +165,36 @@ public class LinkedList<E> extends AbstractList<E> {
 
   @Override
   public boolean remove(E element) {
-    LinkedNode<E> node = head;
 
-    while (node != null) {
-      System.out.println(node.toString());
-      node = node.getNext();
+    if (isEmpty()) {
+      return false;
     }
 
-    for (LinkedNode<E> n = head; n != null; n = n.getNext()) {
+    LinkedNode<E> n = head;
+    System.out.println("TEST");
+    while (!n.get().equals(element) || n.getNext() != null) {
+      n = n.getNext();
+    }
+
+    if (n != null) {
+
+      if (n == head) {
+        if (size == 1) {
+          return clear();
+        } else {
+          head = head.getNext();
+        }
+        size--;
+        return true;
+
+      } else {
+
+      }
 
     }
 
     return false;
+
   }
 
   @Override
@@ -249,8 +271,9 @@ public class LinkedList<E> extends AbstractList<E> {
 
   @Override
   public boolean clear() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'clear'");
+    head = tail = inode = null;
+    size = 0;
+    return true;
   }
 
   @Override
@@ -279,8 +302,7 @@ public class LinkedList<E> extends AbstractList<E> {
 
   @Override
   public int size() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'size'");
+    return this.size;
   }
 
   @Override

@@ -11,6 +11,14 @@ public class Stack<E> extends AbstractStack<E> {
 
   private LinkedList<E> list;
 
+  public Stack() {
+    this.list = new LinkedList<>();
+  }
+
+  public Stack(E element) {
+    this.list = new LinkedList<>(element);
+  }
+
   @Override
   public E peek() {
     return list.peekLast();

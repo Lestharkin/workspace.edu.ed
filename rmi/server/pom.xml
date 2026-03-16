@@ -24,6 +24,13 @@
       <version>5.11.4</version>
       <scope>test</scope>
     </dependency>  
+
+    <dependency>
+      <groupId>com.lestharkin</groupId>
+      <artifactId>collection</artifactId>
+      <version>3.0.0-20260314</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
 
   <build>

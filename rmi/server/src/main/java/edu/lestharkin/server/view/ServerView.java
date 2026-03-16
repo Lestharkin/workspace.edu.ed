@@ -11,7 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-public class ServerView {
+import edu.lestharkin.server.model.observer.Observer;
+import edu.lestharkin.server.model.observer.Subject;
+
+public class ServerView extends Observer {
   private String title;
   private JFrame frame;
   private JButton button;
@@ -19,7 +22,8 @@ public class ServerView {
   private JPanel panelConsole;
   private JLabel console;
 
-  public ServerView(String title) {
+  public ServerView(String title, Subject subject) {
+    super(subject);
     this.title = title;
     this.frame = new JFrame(this.title);
     this.button = new JButton("Start Server");
@@ -70,5 +74,10 @@ public class ServerView {
   public void startStatus(String status) {
     button.setText(status);
     button.setEnabled(false);
+  }
+
+  @Override
+  public void update() {
+    // console.setText("Status: " + subject.getState());
   }
 }

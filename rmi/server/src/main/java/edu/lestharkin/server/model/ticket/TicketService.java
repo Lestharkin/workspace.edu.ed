@@ -1,4 +1,4 @@
-package edu.lestharkin.server.model;
+package edu.lestharkin.server.model.ticket;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -12,8 +12,7 @@ public class TicketService extends UnicastRemoteObject implements TicketInterfac
   }
 
   @Override
-  public Ticket register(String id) throws RemoteException {
-    Ticket ticket = new Ticket(id, "Ticket " + id);
+  public Ticket register(Ticket ticket) throws RemoteException {
     tickets[index] = ticket;
     index++;
     return ticket;

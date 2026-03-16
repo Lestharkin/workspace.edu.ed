@@ -1,4 +1,4 @@
-package edu.lestharkin.server.model;
+package edu.lestharkin.server.model.ticket;
 
 import java.io.Serializable;
 

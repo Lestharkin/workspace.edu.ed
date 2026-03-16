@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
+import edu.lestharkin.server.model.history.History;
 import edu.lestharkin.server.model.observer.Observer;
 import edu.lestharkin.server.model.observer.Subject;
 
@@ -78,6 +79,10 @@ public class ServerView extends Observer {
 
   @Override
   public void update() {
-    // console.setText("Status: " + subject.getState());
+    console.setText("Status: " + this.getHistory().getLastAction());
+  }
+
+  public History getHistory() {
+    return (History) subject;
   }
 }

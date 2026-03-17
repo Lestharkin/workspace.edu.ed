@@ -75,6 +75,7 @@ public class ServerView extends Observer {
   public void startStatus(String status) {
     button.setText(status);
     button.setEnabled(false);
+    this.getHistory().addAction(status);
   }
 
   @Override
@@ -84,5 +85,9 @@ public class ServerView extends Observer {
 
   public History getHistory() {
     return (History) subject;
+  }
+
+  public void setMessage(String msg) {
+    this.getHistory().addAction(msg);
   }
 }

@@ -1,5 +1,6 @@
 package edu.lestharkin.server.factory;
 
+import edu.lestharkin.environment.Environment;
 import edu.lestharkin.server.controller.ServerController;
 import edu.lestharkin.server.model.ServerModel;
 import edu.lestharkin.server.model.history.History;
@@ -12,12 +13,17 @@ public class ServerFactory {
 
   public static ServerController create() {
 
+    Environment env = Environment.getInstance();
+    if (env == null) {
+      throw new IllegalStateException("Failed to create Environment");
+    }
+
     History history = new History();
     if (history == null) {
       throw new IllegalStateException("Failed to create History");
     }
 
-    ServerModel model = new ServerModel();
+    ServerModel model = new ServerModel(env.getIp(), env.getPort(), env.getServiceName());
     if (model == null) {
       throw new IllegalStateException("Failed to create ServerModel");
     }

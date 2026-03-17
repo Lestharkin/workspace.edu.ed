@@ -19,9 +19,8 @@ public class ServerController {
         view.startStatus("Server is already");
         return null;
       });
-      System.out.println("Server deployed successfully.");
     } else {
-      System.out.println("Failed to deploy the server.");
+      view.setMessage("Failed to deploy the server.");
     }
   }
 

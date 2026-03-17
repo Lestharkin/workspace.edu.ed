@@ -1,14 +1,14 @@
 package edu.lestharkin.server.controller;
 
-import edu.lestharkin.server.model.Server;
+import edu.lestharkin.server.model.ServerModel;
 import edu.lestharkin.server.view.ServerView;
 
 public class ServerController {
 
-  Server model;
+  ServerModel model;
   ServerView view;
 
-  public ServerController(Server model, ServerView view) {
+  public ServerController(ServerModel model, ServerView view) {
     this.model = model;
     this.view = view;
   }

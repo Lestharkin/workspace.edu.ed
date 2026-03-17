@@ -6,14 +6,14 @@ import java.rmi.registry.LocateRegistry;
 import edu.lestharkin.server.model.ticket.TicketInterface;
 import edu.lestharkin.server.model.ticket.TicketService;
 
-public class Server {
+public class ServerModel {
 
   private String ip;
   private int port;
   private String serviceName;
   private String uri;
 
-  public Server(String ip, int port, String serviceName) {
+  public ServerModel(String ip, int port, String serviceName) {
     this.ip = ip;
     this.port = port;
     this.serviceName = serviceName;

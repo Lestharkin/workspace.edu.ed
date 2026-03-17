@@ -7,18 +7,18 @@ public class Ticket implements Serializable {
   private static final long serialVersionUID = 1L;
 
   private String id;
-  private String name;
+  private Customer customer;
 
-  public Ticket(String id, String name) {
+  public Ticket(String id, Customer customer) {
     this.id = id;
-    this.name = name;
+    this.customer = customer;
   }
 
   public String getId() {
     return id;
   }
 
-  public String getName() {
-    return name;
+  public String getCustomerName() {
+    return customer.getNames();
   }
 }

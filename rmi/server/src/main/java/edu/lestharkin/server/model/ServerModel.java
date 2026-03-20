@@ -22,6 +22,7 @@ public class ServerModel {
      * "//10.153.60.48:1802/tickets"
      */
     this.uri = "//" + ip + ":" + port + "/" + this.serviceName;
+    System.out.println("URI: " + this.uri);
   }
 
   public boolean deploy() {

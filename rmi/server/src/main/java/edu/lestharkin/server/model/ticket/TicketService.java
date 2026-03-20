@@ -13,9 +13,19 @@ public class TicketService extends UnicastRemoteObject implements TicketInterfac
 
   @Override
   public Ticket register(Ticket ticket) throws RemoteException {
-    tickets[index] = ticket;
+    Ticket newTicket = new Ticket(String.valueOf(index + 1), new Customer("1", ticket.getCustomerName()));
+    tickets[index] = newTicket;
     index++;
-    return ticket;
+    return newTicket;
   }
 
+  @Override
+  public boolean validate(Ticket ticket) throws RemoteException {
+    for (int i = 0; i < index; i++) {
+      if (tickets[i].equals(ticket)) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

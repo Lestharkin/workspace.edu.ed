@@ -11,7 +11,7 @@ public class Environment {
   private Environment() {
     System.getProperty("config.file.path", System.getenv().getOrDefault("CONFIG_FILE_PATH", "config.properties"));
 
-    this.ip = System.getProperty("server.ip", System.getenv().getOrDefault("SERVER_IP", "localhost"));
+    this.ip = System.getProperty("server.ip", System.getenv().getOrDefault("SERVER_IP", "10.153.96.175"));
 
     this.port = Integer
         .parseInt(System.getProperty("server.port", System.getenv().getOrDefault("SERVER_PORT", "1808")));

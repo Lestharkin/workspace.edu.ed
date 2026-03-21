@@ -2,11 +2,13 @@ package edu.lestharkin.client.model;
 
 import java.rmi.Naming;
 
+import edu.lestharkin.client.model.observer.Subject;
 import edu.lestharkin.server.model.ticket.Customer;
 import edu.lestharkin.server.model.ticket.Ticket;
 import edu.lestharkin.server.model.ticket.TicketInterface;
 
-public class ClientModel {
+public class ClientModel extends Subject {
+  private String logger;
   private String uri;
   private TicketInterface ticketService;
 
@@ -17,10 +19,13 @@ public class ClientModel {
 
   public boolean connect() {
     try {
-      System.out.println("Connecting to server at: " + uri);
       this.ticketService = (TicketInterface) Naming.lookup(uri);
+      this.logger = ("Connecting to server at: " + uri);
+      this.notifyObservers();
       return true;
     } catch (Exception e) {
+      this.logger = ("Failed to connect to server at: " + uri);
+      this.notifyObservers();
       e.printStackTrace();
       return false;
     }
@@ -30,20 +35,21 @@ public class ClientModel {
     return ticketService;
   }
 
-  public String register(String names) {
+  public void register(String names) {
     try {
       Ticket ticket = new Ticket("", new Customer("1", names));
       Ticket ticketRegistered = this.getTicketService().register(ticket);
-      // TODO: Notify to observers
-      System.out.println("Registered with ticket: " + ticketRegistered.getId() + " for customer: "
+      this.logger = ("Registered with ticket: " + ticketRegistered.getId() + " for customer: "
           + ticketRegistered.getCustomerName());
-      return "Registered with ticket: " + ticketRegistered.getId() + " for customer: "
-          + ticketRegistered.getCustomerName();
-
+      this.notifyObservers();
     } catch (Exception e) {
       e.printStackTrace();
-      // TODO: Notify to observers
-      return "Registration failed: " + e.getMessage();
+      this.logger = "Registration failed: " + e.getMessage();
+      this.notifyObservers();
     }
+  }
+
+  public String getLogger() {
+    return logger;
   }
 }

@@ -2,50 +2,60 @@ package edu.lestharkin.client.view;
 
 import java.util.function.Function;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import edu.lestharkin.client.model.ClientModel;
+import edu.lestharkin.client.model.observer.Observer;
 
 /**
  *
  * @author lestharkin
  */
-public class ClientView extends javax.swing.JFrame {
+public class ClientView extends Observer {
 
-        private javax.swing.JButton jButton1;
-        private javax.swing.JLabel jLabel1;
-        private javax.swing.JLabel jLabel2;
-        private javax.swing.JMenu jMenu1;
-        private javax.swing.JMenu jMenu2;
-        private javax.swing.JMenuBar jMenuBar1;
-        private javax.swing.JMenuItem jMenuItem1;
-        private javax.swing.JPanel jPanel1;
-        private javax.swing.JTextField jTextField1;
+        private JFrame jFrame;
+        private JButton jButton1;
+        private JLabel jLabel1;
+        private JLabel jLabel2;
+        private JMenu jMenu1;
+        private JMenu jMenu2;
+        private JMenuBar jMenuBar1;
+        private JMenuItem jMenuItem1;
+        private JPanel jPanel1;
+        private JTextField jTextField1;
 
         private Function<String, Void> registerTicket;
 
-        public ClientView() {
+        public ClientView(ClientModel model) {
+                super(model);
+                this.jFrame = new JFrame();
+                this.jPanel1 = new javax.swing.JPanel();
+                this.jLabel1 = new javax.swing.JLabel();
+                this.jTextField1 = new javax.swing.JTextField();
+                this.jButton1 = new javax.swing.JButton();
+                this.jLabel2 = new javax.swing.JLabel();
+                this.jMenuBar1 = new javax.swing.JMenuBar();
+                this.jMenu1 = new javax.swing.JMenu();
+                this.jMenuItem1 = new javax.swing.JMenuItem();
+                this.jMenu2 = new javax.swing.JMenu();
         }
 
         public void initComponents(Function<String, Void> registerTicket) {
 
-                jPanel1 = new javax.swing.JPanel();
-                jLabel1 = new javax.swing.JLabel();
-                jTextField1 = new javax.swing.JTextField();
-                jButton1 = new javax.swing.JButton();
-                jLabel2 = new javax.swing.JLabel();
-                jMenuBar1 = new javax.swing.JMenuBar();
-                jMenu1 = new javax.swing.JMenu();
-                jMenuItem1 = new javax.swing.JMenuItem();
-                jMenu2 = new javax.swing.JMenu();
-
                 this.registerTicket = registerTicket;
 
-                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+                this.jFrame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
                 jLabel1.setText("Nombres:");
 
                 jTextField1.setName("names"); // NOI18N
-                jTextField1.addActionListener(this::jTextField1ActionPerformed);
-
                 jButton1.setText("Registrar");
                 jButton1.setName("register"); // NOI18N
                 jButton1.addActionListener(this::jButton1ActionPerformed);
@@ -101,10 +111,7 @@ public class ClientView extends javax.swing.JFrame {
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addContainerGap(15, Short.MAX_VALUE)));
 
-                jMenu1.setLabel("Archivo");
-
                 jMenuItem1.setText("Salir");
-                jMenuItem1.addActionListener(this::jMenuItem1ActionPerformed);
                 jMenu1.add(jMenuItem1);
 
                 jMenuBar1.add(jMenu1);
@@ -112,10 +119,10 @@ public class ClientView extends javax.swing.JFrame {
                 jMenu2.setText("Edit");
                 jMenuBar1.add(jMenu2);
 
-                setJMenuBar(jMenuBar1);
+                this.jFrame.setJMenuBar(jMenuBar1);
 
-                javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-                getContentPane().setLayout(layout);
+                javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this.jFrame.getContentPane());
+                this.jFrame.getContentPane().setLayout(layout);
                 layout.setHorizontalGroup(
                                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(layout.createSequentialGroup()
@@ -135,15 +142,7 @@ public class ClientView extends javax.swing.JFrame {
                                                                                 Short.MAX_VALUE)
                                                                 .addContainerGap()));
 
-                pack();
-        }// </editor-fold>
-
-        private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
-                // TODO add your handling code here:
-        }
-
-        private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
-                // TODO add your handling code here:
+                this.jFrame.pack();
         }
 
         private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,5 +151,14 @@ public class ClientView extends javax.swing.JFrame {
 
         public void setMessage(String message) {
                 jLabel2.setText(message);
+        }
+
+        public void update() {
+                ClientModel model = (ClientModel) this.subject;
+                this.setMessage(model.getLogger());
+        }
+
+        public void setVisible(boolean visible) {
+                this.jFrame.setVisible(visible);
         }
 }

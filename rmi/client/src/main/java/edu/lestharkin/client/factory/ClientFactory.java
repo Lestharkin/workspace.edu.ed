@@ -29,7 +29,7 @@ public class ClientFactory {
       throw new IllegalStateException("Failed to create ClientModel");
     }
 
-    ClientView view = new ClientView();
+    ClientView view = new ClientView(model);
     if (view == null) {
       throw new IllegalStateException("Failed to create ClientView");
     }

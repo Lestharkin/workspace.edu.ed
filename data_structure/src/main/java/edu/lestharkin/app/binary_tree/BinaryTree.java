@@ -7,6 +7,8 @@ import edu.lestharkin.model.tree.Tree;
 
 public class BinaryTree<E> extends AbstractTree<E> {
 
+  private Root<E> root;
+
   @Override
   public List<E> preOrder() {
     // TODO Auto-generated method stub
@@ -107,6 +109,12 @@ public class BinaryTree<E> extends AbstractTree<E> {
   public Tree<E> getRightSubtree(AbstractNode<E> root) {
     // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'getRightSubtree'");
+  }
+
+  @Override
+  public List<E> levelOrder() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'levelOrder'");
   }
 
 }

@@ -11,6 +11,8 @@ public interface Tree<E> {
 
   List<E> postOrder();
 
+  List<E> levelOrder();
+
   boolean insert(E element);
 
   boolean remove(E element);

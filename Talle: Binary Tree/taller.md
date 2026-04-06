@@ -10,6 +10,8 @@ A partir de la información contenida en el archivo books.json, desarrolle un pr
   }
 ```
 
+![nombre](./img.jpg)
+
 ## 2. Establezca la altura del árbol
 
 ## 3. Especifique el tamaño del árbol

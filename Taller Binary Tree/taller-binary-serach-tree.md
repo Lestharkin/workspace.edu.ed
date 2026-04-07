@@ -1,4 +1,4 @@
-# Taller arboles binarios de búsqueda
+# Taller árboles binarios de búsqueda
 
 Mediante el mecanismo de herencia a partir de la clase de árbol binario, proceda con la modificación de los métodos de inserción y búsqueda para transformar la estructura en un árbol binario de búsqueda. Desarrolle un programa que implemente el almacenamiento de los datos bibliográficos. Tras completar la carga de los datos en dicha estructura, proporcione el fragmento de código correspondiente y responda formalmente a las siguientes cuestiones:
 

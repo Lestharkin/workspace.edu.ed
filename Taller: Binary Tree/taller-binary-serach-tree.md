@@ -1,6 +1,6 @@
 # Taller arboles binarios de búsqueda
 
-Heredando del árbol binario, modifique su inserción y su búsqueda para que se convierta en un árbol binario de búsqueda. Desarrolle un programa que implemente el almacenamiento de los datos bibliográficos. Tras completar la carga de los datos en dicha estructura, proporcione el fragmento de código correspondiente y responda formalmente a las siguientes cuestiones:
+Mediante el mecanismo de herencia a partir de la clase de árbol binario, proceda con la modificación de los métodos de inserción y búsqueda para transformar la estructura en un árbol binario de búsqueda. Desarrolle un programa que implemente el almacenamiento de los datos bibliográficos. Tras completar la carga de los datos en dicha estructura, proporcione el fragmento de código correspondiente y responda formalmente a las siguientes cuestiones:
 
 ## 1. Establezca la altura del árbol
 

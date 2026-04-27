@@ -1,23 +1,22 @@
 package edu.lestharkin;
 
-import edu.lestharkin.app.linkedlist.singly.LinkedList;
+import edu.lestharkin.app.hash.HashTable;
 
 /**
  * Hello world!
  *
  */
 public class App {
-    public static void main(String[] args) {
-        System.out.println("Hello Lists");
+    public static void main() {
+        System.out.println("Hash Table");
 
-        LinkedList<Integer> list = new LinkedList<>();
+        int size = 10000;
 
-        list.add(10);
-        list.add(2);
-        list.add(130);
-        list.add(1044444);
+        HashTable ht = new HashTable(size);
 
-        list.remove(1);
+        for (int i = 0; i < size; i++) {
+            ht.insert(i);
+        }
 
     }
 }
